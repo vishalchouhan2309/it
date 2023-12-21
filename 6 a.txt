@@ -1,0 +1,20 @@
+int MQ2_digitalout=13; //Set Digital Input D0 for Mq2.
+void setup()
+{
+Serial.begin(9600);
+pinMode(MQ2_digitalout,INPUT);
+}
+void loop()
+{
+int value=digitalRead(MQ2_digitalout);
+Serial.println("Sensor value is :");//Prints the value of MQ2 sensor to Serial Monitor.
+Serial.println(value);
+if(value)
+{
+Serial.println("| Smoke detected!");
+}
+else
+{
+Serial.println(" NO Smoke");
+}
+}

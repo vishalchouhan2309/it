@@ -1,0 +1,25 @@
+#include<LiquidCrystal.h>
+LiquidCrystal lcd(12, 13, 8, 9, 10, 11); //Interface pins of the LCD
+const int trig_pin=4;
+const int echo_pin=5;
+long distance,duration;
+void setup() {
+lcd.begin(16,2);
+lcd.setCursor(0,0); //set the cursor to column 0 and line 0
+pinMode(4,OUTPUT);
+pinMode(5,INPUT);
+}
+void loop() {
+digitalWrite(4,HIGH);
+delayMicroseconds(20);
+digitalWrite(4,LOW);
+delayMicroseconds(20);
+duration = pulseIn(echo_pin, HIGH); //To receive the reflected signal.
+distance= duration*0.034/2;
+lcd.setCursor(0,0);
+lcd.print("The distance is");
+lcd.setCursor(0,1); //set the cursor to column 0 and line 1
+lcd.print(distance);
+lcd.print("cm");
+delay(100);
+}

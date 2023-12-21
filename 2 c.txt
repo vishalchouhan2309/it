@@ -1,0 +1,18 @@
+const int ledPin = 13; // pin the LED is connected to
+void setup()
+{
+Serial.begin(9600); // Initialize serial port to send and receive at 9600 baud
+pinMode(ledPin, OUTPUT); // set this pin as output
+}
+void loop()
+{
+if ( Serial.available()) // Check to see if at least one character is available
+{
+char ch = Serial.read();
+if (ch =='0')
+digitalWrite(ledPin,HIGH);
+if(ch=='1')
+digitalWrite(ledPin,LOW);
+else
+digitalWrite(ledPin,LOW);
+}

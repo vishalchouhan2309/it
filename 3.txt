@@ -1,0 +1,10 @@
+int sensor_Value = 0; void setup()
+{
+Serial.begin(9600);
+pinMode(A0, INPUT); // Declare the A0 as an input
+}
+void loop() {
+Sensor_Value = analogRead(A0); //Reads the value from the sensor connected at A0 and stores it.
+Serial.println("LDR value is :");
+Serial.println(Sensor_Value); //Prints the value of LDR to Serial Monitor.
+}

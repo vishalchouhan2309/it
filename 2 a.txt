@@ -1,0 +1,16 @@
+void setup()
+{
+// Start serial communication for Uno R3
+Serial.begin(9600); //Start serial communication for Arduino Mega at Serial port 3
+}
+void loop() {
+Dept. of CSE(CD), MVJCE Page 14 2023-24
+Internet of Things Lab (MVJ20CDL76)
+Serial.print("Hello World!\n");
+Serial.print("17\n");
+Serial.print("3.14159265359\n");
+Serial.print(25);
+Serial.print("\n"); // Outputs the ASCII string "25" to the serial port
+Serial.print(2.7345); // Outputs "2.73"
+delay(1000);
+}
