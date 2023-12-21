@@ -1,0 +1,30 @@
+int trigPin=8;
+int echPin=9;
+int buzzer=10;
+float duratin_us,distance_us;
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+    pinMode(trigPin, OUTPUT);
+    pinMode(echPin, INPUT);
+    pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+      digitalWrite(trigPin, HIGH);
+      delayMicroseconds(1000);
+      digitalWrite(trigPin, LOW);
+      duratin_us=pulseIn(echPin,HIGH);
+      distance_us=duratin_us*0.017;
+      Serial.println("Distance is:");
+      Serial.print(distance_us);
+      if(distance_us<50){
+        tone(buzzer,1000);
+        delay(1000);
+      }
+      else{
+        noTone(buzzer);
+        delay(1000);
+      }
+}
